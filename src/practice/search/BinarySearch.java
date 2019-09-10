@@ -17,5 +17,38 @@ public class BinarySearch {
      */
     private Object key;
 
+    /**
+     * 待判断区间头部指针
+     */
+    private int head;
+
+    /**
+     * 待判断区间中间指针
+     */
+    private int middle;
+
+    /**
+     * 待判断区间尾部指针
+     */
+    private int tail;
+
+    /**
+     * 获取key的下标
+     * @return key的下标
+     */
+    public int getKeyIndex(Object[] array, Object key){
+
+        this.array = array;
+        this.key = key;
+
+        this.head = 0;
+        this.tail = array.length;
+        this.middle = (head+tail)/2;
+
+        // todo 判断 key 所在的区间
+        
+
+        return 0;
+    }
 
 }
