@@ -10,12 +10,12 @@ public class BinarySearch {
     /**
      * 用于保存待查询数组
      */
-    private Object[] array;
+    private int[] array;
 
     /**
      * 用于保存待查询对象
      */
-    private Object key;
+    private int key;
 
     /**
      * 待判断区间头部指针
@@ -33,22 +33,79 @@ public class BinarySearch {
     private int tail;
 
     /**
-     * 获取key的下标
-     * @return key的下标
+     * 结果
      */
-    public int getKeyIndex(Object[] array, Object key){
+    private int result;
 
+    /**
+     * 初始化数据
+     *
+     * @param array 待查找数组
+     * @param key   待查找数据
+     */
+    public void init(int[] array, int key) {
         this.array = array;
         this.key = key;
-
         this.head = 0;
-        this.tail = array.length;
-        this.middle = (head+tail)/2;
+        this.result = -1;
+        this.tail = array.length-1;
+        this.middle = (head + tail) / 2;
+    }
 
-        // todo 判断 key 所在的区间
-        
+    /**
+     * 用递归的方式查找key的下标
+     *
+     * @return key的下标，若返回-1则说明没有找到
+     */
+    public int findKeyInRecur() {
 
+        // 若key是 head middle tail 中的一个
+        if (key == array[head]) {
+            result = head;
+        } else if (key == array[middle]) {
+            result = middle;
+        } else if (key == array[tail]) {
+            result = tail;
+        }
+
+        // 若key在区间(head,middle)中
+        if (key > array[head] && key < array[middle]) {
+            tail = middle - 1;
+            head++;
+            middle = (head + tail) / 2;
+            // 递归处理左侧
+            findKeyInRecur();
+        } else if (key > array[middle] && key < array[tail]) {
+            // 若key在区间(middle,tail)中
+            head = middle + 1;
+            tail--;
+            middle = (head + tail) / 2;
+            // 递归处理右侧
+            findKeyInRecur();
+        }
+
+        // 未找到返回-1
+        return result;
+    }
+
+    public int findKeyInLoop() {
         return 0;
     }
 
+
+
 }
+
+class Test{
+    public static void main(String[] args){
+        int[] array = {1,2,3,4,5,9,10};
+        int key = 0;
+        BinarySearch search = new BinarySearch();
+        search.init(array,key);
+        int result = search.findKeyInRecur();
+        System.out.println(result);
+    }
+
+}
+
+
