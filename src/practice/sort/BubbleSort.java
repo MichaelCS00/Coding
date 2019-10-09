@@ -82,7 +82,6 @@ public class BubbleSort {
         int tempSortBorder = sortBorder;
         for(int i=0; i<array.length-1; i++){
             boolean sorted = true;
-
             for(int j=0; j<sortBorder; j++){
                 times++;
                 if(array[j]>array[j+1]){
@@ -104,30 +103,10 @@ public class BubbleSort {
         System.out.println("sort3:"+times);
     }
 
-    public static void sort_v4(int array[]){
-        int times = 0;
-        for(int i=0; i<array.length-1; i++){
-            boolean sorted = true;
-            int sortBorder = array.length - 1;
-            for(int j=0; j<sortBorder; j++){
-                int tmp = 0;
-                times++;
-                if(array[j] > array[j+1]){
-                    tmp = array[j];
-                    array[j] = array[j+1];
-                    array[j+1] = tmp;
-                    sorted = false;
-                    sortBorder = j;
-                }
-            }
-            if(sorted)break;
-        }
-        System.out.println(times);
-    }
 
     public static void main(String[] args){
-        int[] array1 = {1,2,3,5,6,8,3,2};
-        sort_v3(array1);
+        int[] array1 = {1,2,3,7,4,5,6,8};
+        sort_v1(array1);
         for(int a : array1){
             System.out.println(a);
         }
