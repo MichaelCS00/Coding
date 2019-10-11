@@ -122,17 +122,62 @@ public class BinarySearch {
 
 }
 
+class BinarySerch_v2{
+    public static int loopBinarySearch(int[] array,int key){
+        // 初始化数据
+        int head = 0;
+        int tail = array.length - 1;
+        int middle = (head+tail)/2;
+        // 处理异常
+        if(key<array[head] || key>array[tail]){
+            return -1;
+        }
+        // 主要逻辑
+        while(head <= tail){
+            if(key<array[middle]){
+                tail = middle-1;
+            }else if(key > array[middle]){
+                head = middle+1;
+            }else {
+                return middle;
+            }
+            middle = (head+tail)>>1;
+        }
+        return -1;
+    }
+
+    public static int recurBinarySearch(int[] array,int head,int tail,int key){
+        // 初始化数据
+        int middle = (head+tail)/2;
+        // 处理异常
+        if(key < array[head] || key > array[tail]){
+            return -1;
+        }
+        // 主要处理逻辑
+        if(key > array[middle]){
+            return recurBinarySearch(array,middle+1,tail,key);
+        }else if (key < array[middle]){
+            return recurBinarySearch(array,head,middle-1,key);
+        }else {
+            return middle;
+        }
+    }
+
+}
+
 class Test{
     public static void main(String[] args){
         int[] array = {1,2,3,4,5,9,10};
-        int key = 0;
-        BinarySearch search = new BinarySearch();
-        search.init(array,key);
+        int key = 11;
+//        BinarySearch search = new BinarySearch();
+//        search.init(array,key);
 //        int result = search.findKeyInRecur();
 //        System.out.println(result);
-
-        int result1 = search.findKeyInLoop();
-        System.out.println(result1);
+//
+//        int result1 = search.findKeyInLoop();
+//        System.out.println(result1);
+        System.out.println(BinarySerch_v2.loopBinarySearch(array,key));
+        System.out.println(BinarySerch_v2.recurBinarySearch(array,0,array.length-1,key));
     }
 
 }
