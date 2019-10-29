@@ -50,12 +50,18 @@ public class IntegerTest {
 //        referenceTest.StringFunc(s);
 //        System.out.println(s);
 
+        /**
+         * 直接赋值会调用
+         */
         Integer a = 12;
         Integer b = 12;
 
         System.out.println(a==b);
         System.out.println(a.equals(b));
 
+        /**
+         * Integer 在超出 -128-127 范围时才会新建对象
+         */
         Integer c = 128;
         Integer d = 128;
 

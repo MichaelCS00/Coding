@@ -30,11 +30,13 @@ class Solution_02{
         // 主要执行逻辑
         while (end < str.length()){
             if(str.charAt(end) == ' '){
-                result.append(str.substring(begin, end - 1)).append("%20");
+                result.append(str.substring(begin, end)).append("%20");
                 begin = end+1;
-                end++;
             }
             end++;
+            if(end == str.length()){
+                result.append(str.substring(begin,end));
+            }
         }
 
         return result.toString();

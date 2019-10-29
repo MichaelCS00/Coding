@@ -32,6 +32,7 @@ public class Demo {
 
     public static void main(String[] args) {
         new Demo().new Sub(5);
-
+        // Supper.test() flag= 1;
+        //
     }
 }
