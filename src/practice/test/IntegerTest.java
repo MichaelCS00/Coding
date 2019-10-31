@@ -15,10 +15,12 @@ public class IntegerTest {
         }
     }
 
+    Integer integera = 1;
+
     private boolean IntegerFunc(Test test){
-//        integer++;
-//        System.out.println(integer.equals(integer));
-//        System.out.println(System.identityHashCode(integer));
+        integera++;
+//        System.out.println(integerArray.equals(integerArray));
+//        System.out.println(System.identityHashCode(integerArray));
         test.setA(2);
         return true;
     }
@@ -29,6 +31,7 @@ public class IntegerTest {
     }
 
     public static void main(String[] args){
+
 
         Integer integer = 12223;
         System.out.println(System.identityHashCode(integer));
@@ -43,8 +46,8 @@ public class IntegerTest {
         System.out.println(test.a);
 
 //        // 测试Integer 是否会被修改
-//        referenceTest.IntegerFunc(integer);
-//        System.out.println(integer);
+//        referenceTest.IntegerFunc(integerArray);
+//        System.out.println(integerArray);
 
 //        // 测试String是否会被修改
 //        referenceTest.StringFunc(s);

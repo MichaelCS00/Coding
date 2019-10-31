@@ -11,6 +11,29 @@ public class interview_04_rebuildBinaryTree {
 
     }
 
+    private class TreeNode{
+        int val;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int x){ val = x;}
+    }
+
+    private class Solution_04 {
+        public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+            // 处理异常数据
+            if(0 == pre.length || 0 == in.length){
+
+            }
+
+            // 初始化数据
+            TreeNode result = new TreeNode(pre[0]);
+
+            // 主要执行逻辑
+
+
+            return result;
+        }
+
 }
 
 /**
@@ -23,26 +46,5 @@ public class interview_04_rebuildBinaryTree {
  * }
  */
 
-class TreeNode{
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int x){ val = x;}
-}
 
-class Solution_04 {
-    public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
-        // 处理异常数据
-        if(0 == pre.length || 0 == in.length){
-
-        }
-
-        // 初始化数据
-        TreeNode result = new TreeNode(pre[0]);
-
-        // 主要执行逻辑
-
-
-        return result;
-    }
 }
