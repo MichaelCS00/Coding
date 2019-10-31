@@ -110,7 +110,7 @@ public class BinaryTree {
             // 当前节点为空且栈非空时 回溯父节点并访问其右孩子
             if(!stack.isEmpty()){
                 currNode = stack.pop();
-                // todo !!!!
+                // todo 先记录跑出来的节点，先将有孩子入栈后将父节点入栈
                 traversalList.add(null);
                 currNode = currNode.rightChild;
             }
