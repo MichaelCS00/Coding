@@ -110,8 +110,7 @@ public class BinaryTree {
             // 当前节点为空且栈非空时 回溯父节点并访问其右孩子
             if(!stack.isEmpty()){
                 currNode = stack.pop();
-                // todo 先记录跑出来的节点，先将有孩子入栈后将父节点入栈
-                traversalList.add(null);
+                traversalList.add(currNode.data);
                 currNode = currNode.rightChild;
             }
         }
@@ -143,11 +142,14 @@ public class BinaryTree {
             }
             // 若当前节点为空且栈非空则回溯当前节点的父节点并访问其有孩子
             if(!stack.isEmpty()){
-                currNode = stack.pop();
-
-                currNode = currNode.rightChild;
+                TreeNode tempNode = stack.pop();
+                // todo 后续遍历存在问题待改进
+                currNode = tempNode.rightChild;
+                if(null != currNode){
+                    traversalList.add(currNode.data);
+                }
+                traversalList.add(tempNode.data);
             }
-
         }
     }
 
@@ -182,11 +184,24 @@ public class BinaryTree {
         System.out.print("inOrder: ");
         displayTraversalResult();
 
+        // 非递归中序遍历
+        traversalList.clear();
+        inOrderTraversalWithStack(root);
+        System.out.print("inOrder_Stack: ");
+        displayTraversalResult();
+
         // 递归后续遍历
         traversalList.clear();
         postOrderTraversal(root);
         System.out.print("postOrder: ");
         displayTraversalResult();
+
+        // 非递归后续遍历
+        traversalList.clear();
+        postOrderTraversalWithStack(root);
+        System.out.print("postOrder_Stack: ");
+        displayTraversalResult();
+
     }
 }
 
