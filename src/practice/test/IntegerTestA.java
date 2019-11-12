@@ -39,6 +39,7 @@ public class IntegerTestA {
     public void changeString(StringBuffer buffer){
         buffer.append("a");
     }
+
     public static void main(String[] args){
         IntegerTestA test = new IntegerTestA();
         test.changeInteger(test.integer);

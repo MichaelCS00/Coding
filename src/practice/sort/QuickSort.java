@@ -62,6 +62,8 @@ public class QuickSort {
         return left;
     }
 
+
+
     public static void main(String[] args){
         int[] array = {4,4,6,5,3,2,8,1};
         sort_v1(array,0,array.length-1);

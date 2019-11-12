@@ -54,7 +54,7 @@ public class IntegerTest {
 //        System.out.println(s);
 
         /**
-         * 直接赋值会调用
+         * 直接赋值会调用 valueOf()方法
          */
         Integer a = 12;
         Integer b = 12;
